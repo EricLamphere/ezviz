@@ -11,8 +11,12 @@
 #' @return Formatted table.
 #' @import formattable
 #' @export
-gradient_tile <- function(format.fun = "percent", format.digits = 2,
-                          font.family = "Arial", font.weight = "normal", border.radius = NULL, color = NULL,
+gradient_tile <- function(format.fun = "percent",
+                          format.digits = 2,
+                          font.family = "Arial",
+                          font.weight = "normal",
+                          border.radius = NULL,
+                          color = NULL,
                           ...){ # ... = inputs to get_colors function
 
   format.fun <- match.fun(format.fun)
@@ -20,10 +24,15 @@ gradient_tile <- function(format.fun = "percent", format.digits = 2,
   formatter("span",
             x ~ format.fun(x, digits = format.digits),
             style = function(x){
-              style(
-                display = "block", padding = "4px", `border-radius` = border.radius,
-                color = color, `font-family` = font.family, `font-weight` = font.weight,
+              formattable::style(
+                display = "block",
+                padding = "4px",
+                `border-radius` = border.radius,
+                color = color,
+                `font-family` = font.family,
+                `font-weight` = font.weight,
                 `background-color` = get_colors(as.numeric(x), ...)
               )
-            })
+            }
+  )
 }

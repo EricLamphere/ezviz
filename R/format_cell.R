@@ -9,14 +9,17 @@
 #' @return Formatted table.
 #' @import formattable
 #' @export
-format_cell <- function(font.family = "", font.weight = "normal", format.fun = "comma", digits = 2,
-                      ...){ # ... = style inputs
+format_cell <- function(font.family = "",
+                        font.weight = "normal",
+                        format.fun = "comma",
+                        digits = 2,
+                        ...){ # ... = style inputs
   format.fun <- match.fun(format.fun)
-  formatter(
+  formattable::formatter(
     "span",
     x ~ format.fun(x, digits = digits),
     style = function(x){
-      style(`font-family` = font.family, font.weight = font.weight, ...)
+      formattable::style(`font-family` = font.family, font.weight = font.weight, ...)
     }
   )
 }

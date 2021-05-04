@@ -16,16 +16,26 @@ get_colors <- function(x, pos = "#8af3a3", neg = "#f49c9c", zero = "#ffffff", ze
   xneg <- x[x<zero_val] %>% sort()
   x0 <- x[x==zero_val]
 
-  colors_pos <- csscolor(gradient(c(zero_val, xpos), zero, pos)) %>% tail(-1)
-  colors_neg <- csscolor(gradient(c(xneg, zero_val), neg, zero)) %>% head(-1)
+  colors_pos <- formattable::csscolor(
+    formattable::gradient(c(zero_val, xpos), zero, pos)
+  ) %>%
+    tail(-1)
+
+  colors_neg <- formattable::csscolor(
+    formattable::gradient(c(xneg, zero_val), neg, zero)
+  ) %>%
+    head(-1)
+
   x0 <- rep(zero, length(x0))
 
-  colors <- tibble(vals = x) %>%
-    left_join(tibble(
-      vals = xsort,
-      colors = c(colors_neg, x0, colors_pos)
-    ), by = "vals") %>%
-    pull(colors)
+  colors <- dplyr::tibble(vals = x) %>%
+    dplyr::left_join(
+      dplyr::tibble(
+        vals = xsort,
+        colors = c(colors_neg, x0, colors_pos)
+      ),
+      by = "vals") %>%
+    dplyr::pull(colors)
 
   return(colors)
 }

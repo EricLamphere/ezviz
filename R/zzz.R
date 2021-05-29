@@ -1,3 +1,3 @@
 .onAttach <- function(...) {
-  renv::restore(lockfile = "./renv.lock")
+  renv::restore()
 }

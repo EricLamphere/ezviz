@@ -12,9 +12,9 @@
 #' @export
 get_colors <- function(x, pos = "#8af3a3", neg = "#f49c9c", zero = "#ffffff", zero_val = 0){
   xsort <- sort(as.numeric(x))
-  xpos <- x[x>zero_val] %>% sort()
-  xneg <- x[x<zero_val] %>% sort()
-  x0 <- x[x==zero_val]
+  xpos <- x[x > zero_val] %>% sort()
+  xneg <- x[x < zero_val] %>% sort()
+  x0 <- x[x == zero_val]
 
   colors_pos <- formattable::csscolor(
     formattable::gradient(c(zero_val, xpos), zero, pos)

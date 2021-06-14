@@ -7,8 +7,7 @@
 #' @param zero Color assigned to \code{zero_val}.
 #' @param zero_val The value you wish to represent 0 (the default, or median value in \code{x}).
 #' @return A data frame with the newly calculated columns. See \code{gradient} documentation for relevant information.
-#' @importFrom dplyr "%>%" left_join
-#' @importFrom formattable csscolor gradient
+#' @importFrom dplyr "%>%"
 #' @export
 get_colors <- function(x, pos = "#8af3a3", neg = "#f49c9c", zero = "#ffffff", zero_val = 0){
   xsort <- sort(as.numeric(x))

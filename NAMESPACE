@@ -3,8 +3,4 @@
 export(format_cell)
 export(get_colors)
 export(gradient_tile)
-import(formattable)
 importFrom(dplyr,"%>%")
-importFrom(dplyr,left_join)
-importFrom(formattable,csscolor)
-importFrom(formattable,gradient)

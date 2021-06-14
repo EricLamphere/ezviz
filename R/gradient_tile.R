@@ -9,7 +9,6 @@
 #' @param color Color assigned to text.
 #' @param ... Parameters passed to \code{get_colors}.
 #' @return Formatted table.
-#' @import formattable
 #' @export
 gradient_tile <- function(format.fun = "percent",
                           format.digits = 2,

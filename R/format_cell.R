@@ -7,7 +7,6 @@
 #' @param digits Number of digits to which the values within the selected cells will be rounded.
 #' @param ... Parameters passed to \code{style}.
 #' @return Formatted table.
-#' @import formattable
 #' @export
 format_cell <- function(font.family = "",
                         font.weight = "normal",

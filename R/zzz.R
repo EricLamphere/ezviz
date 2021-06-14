@@ -3,6 +3,6 @@
   packageStartupMessage(
     emo::ji("beers"),
     crayon::white(" ezviz "),
-    crayon::cyan(packageVersion("ezviz"))
+    crayon::cyan(utils::packageVersion("ezviz"))
   )
 }

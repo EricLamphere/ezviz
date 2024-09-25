@@ -36,5 +36,5 @@ get_colors <- function(x, pos = "#8af3a3", neg = "#f49c9c", zero = "#ffffff", ze
       by = "vals") %>%
     dplyr::pull(colors)
 
-  return(colors)
+  colors
 }

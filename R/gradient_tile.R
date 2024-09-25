@@ -20,18 +20,19 @@ gradient_tile <- function(format.fun = "percent",
 
   format.fun <- match.fun(format.fun)
 
-  formatter("span",
-            x ~ format.fun(x, digits = format.digits),
-            style = function(x){
-              formattable::style(
-                display = "block",
-                padding = "4px",
-                `border-radius` = border.radius,
-                color = color,
-                `font-family` = font.family,
-                `font-weight` = font.weight,
-                `background-color` = get_colors(as.numeric(x), ...)
-              )
-            }
+  formattable::formatter(
+    "span",
+    x ~ format.fun(x, digits = format.digits),
+    style = function(x){
+      formattable::style(
+        display = "block",
+        padding = "4px",
+        `border-radius` = border.radius,
+        color = color,
+        `font-family` = font.family,
+        `font-weight` = font.weight,
+        `background-color` = get_colors(as.numeric(x), ...)
+      )
+    }
   )
 }
